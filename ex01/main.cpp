@@ -6,7 +6,7 @@
 /*   By: jormoral <jormoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 20:28:41 by jormoral          #+#    #+#             */
-/*   Updated: 2025/03/26 17:48:00 by jormoral         ###   ########.fr       */
+/*   Updated: 2025/05/20 13:41:29 by jormoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(void)
 {
-	Data test = {1 , 'p'};
+	/* Data test = {1 , 'p'};
 	std::cout << &test << std::endl;
 	uintptr_t upointer;
 	upointer = Serializer::serialize(&test);
@@ -24,10 +24,14 @@ int main(void)
 	
 	Data* nwe;
 	nwe = Serializer::deserialize(upointer);
+	std::cout << "Data * : " << nwe << std::endl; */
 
-	/* std::cout << &test << std::endl;
-	std::cout << nwe */
-	std::string value = "42.0f";
-	std::cout << value.size() << std::endl;
-	std::cout << "Data * : " << nwe << std::endl;
+	Data rec = {23, 'x'};
+	std::cout << "Direccion Inicial: " << &rec << " " <<rec.n << std::endl;
+	uintptr_t prueba = Serializer::serialize(&rec);
+	std::cout << "Uintptr_t : " << prueba << std::endl;
+
+	Data *recovery = Serializer::deserialize(prueba);
+	std::cout << "Direccion recuperada: " << &recovery << " " << recovery->n << std::endl;
+	
 }

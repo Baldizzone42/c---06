@@ -6,7 +6,7 @@
 /*   By: jormoral <jormoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 20:08:33 by jormoral          #+#    #+#             */
-/*   Updated: 2025/03/25 20:50:53 by jormoral         ###   ########.fr       */
+/*   Updated: 2025/05/20 13:36:10 by jormoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ Serializer::Serializer(){
 	std::cout << "Default Serializer\n";
 }
 
-
 Serializer::~Serializer(){
 	std::cout << "Destructor Serializer\n";
 }
 
 Serializer::Serializer(const Serializer &other)
 {
-	(void)other;
+	if(this != &other)
+		*this = other;
 	std::cout << "Copy Constructor Serializer\n";
 }
 

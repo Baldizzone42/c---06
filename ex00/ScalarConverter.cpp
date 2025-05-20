@@ -6,7 +6,7 @@
 /*   By: jormoral <jormoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 15:55:27 by jormoral          #+#    #+#             */
-/*   Updated: 2025/03/29 19:05:42 by jormoral         ###   ########.fr       */
+/*   Updated: 2025/05/20 13:29:02 by jormoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,6 @@ void print_inf(std::string value)
 		std::cout << "double: " << std::numeric_limits<double>::infinity() << std::endl;
 	}
 }
-
-
-
-
-
 
 void print_char(std::string value)
 {
@@ -105,8 +100,8 @@ void print_int(std::string value)
 			std::cout << "double: " << static_cast<double>(d)  << ".0"<< std::endl;
 		else 
 		{
-			std::cout << "value: " << ld << std::endl;
-			std::cout << "double: " << static_cast<double>(d) << std::endl;
+			//std::cout << "value: " << ld << std::endl;
+			std::cout << "double: " << static_cast<double>(d) << ".0" << std::endl;
 		}
 	}
 	
@@ -188,13 +183,10 @@ void print_double(std::string value)
 	long double ld =  static_cast<long double>(std::strtod(value.c_str(), NULL));
 	if(ld > DBL_MAX && ld < -DBL_MAX)
 		std::cout << "double: out of range\n";
-	else
-	{
-		if((ld < 1000000 && ld > 0.0001) || (ld < -1000000 && ld > -0.0001))
-			std::cout << "double: " << static_cast<double>(d)  << ".0"<< std::endl;
-		else
-			std::cout << "double: " << static_cast<double>(d) << std::endl;
-	}
+	if(d == static_cast<int>(d))
+		std::cout << "double: " << d  << ".0"<< std::endl;
+	else 
+		std::cout << "double: " << d << std::endl;
 }
 
 int ft_identify(std::string value, t_identify *flags)
@@ -237,7 +229,7 @@ int ft_identify(std::string value, t_identify *flags)
 		return(flags->dbl = 1, 1);
 	if(!flags->fnum && !flags->dot && !value[n])
 		return(flags->num = 1, 1);
-	std::cout << "?¿?¿?" << std::endl;
+	std::cerr << "This argument is wrong" << std::endl;
 	exit (1);
 }
 

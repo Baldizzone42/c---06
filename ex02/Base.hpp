@@ -6,7 +6,7 @@
 /*   By: jormoral <jormoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 12:33:01 by jormoral          #+#    #+#             */
-/*   Updated: 2025/03/26 13:42:53 by jormoral         ###   ########.fr       */
+/*   Updated: 2025/05/20 13:44:46 by jormoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Base
 {
 	public:
-	Base();
+		Base();
 	virtual ~Base();
 
 	
